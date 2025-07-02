@@ -1,0 +1,363 @@
+/*
+   CSS styling examples for the Vaadin app.
+
+   Visit https://vaadin.com/docs/styling/application-theme/ for more information.
+*/
+
+:root {
+    --c1: #051622ff; /* Dark Rich Black */
+    --c2: #0FBAAEff; /* Bright Teal */
+    --c3: #666a86ff; /* Muted Grayish Blue */
+    --c4: #dec5e3ff; /* Soft Thistle */
+    --c5: #f4e285ff; /* Warm Flax Yellow */
+    --c6: #BDE2F0; /* Light Sky Blue */
+
+    --tour-card-bg: #f7f7f7; /* Light Neutral Gray for contrast */
+    --tour-card-border: #ddd; /* Subtle border color */
+    --tour-card-text: #333; /* Dark gray for readability */
+}
+
+vaadin-combo-box {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+vaadin-combo-box::part(input-field) {
+    background-color: var(--c6);
+    border: 2px solid var(--c2);
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 0.9rem;
+    height: 6vh;
+    width: 10vw;
+}
+
+vaadin-combo-box::part(label) {
+    color: var(--c2);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+vaadin-combo-box::part(toggle-button) {
+    color: var(--c1);
+    font-size: 10px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    --lumo-font-family: Poppins;
+    background-color: var(--c1);
+}
+
+.landing-page {
+}
+
+.centered-content {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically (if needed) */
+    height: 100vh; /* Full height of the viewport */
+    margin-right: 22vw;
+}
+
+@keyframes typewriter {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.title {
+    color: var(--c2);
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    border-right: 3px solid white;
+    animation: typewriter 2s steps(12, end) forwards, blink 0.75s step-end infinite;
+    text-align: center;
+}
+
+.title-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+    text-align: center;
+}
+
+.tagline {
+    color: var(--c6);
+    opacity: 80%;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.paragraph {
+    color: gray;
+    font-size: 1.2rem;
+}
+
+.create-trip-button {
+    color: var(--c1);
+    background-color: #45ACD1;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+}
+
+.create-trip-button:hover {
+    color: var(--c1);
+    background-color: var(--c4);
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+}
+
+.welcome-msg {
+    color: var(--c6);
+}
+
+.login-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 300px;
+    background-color: white;
+}
+
+.login-divider {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+    padding-top: 5px;
+}
+
+.logout-button {
+    margin-top: auto; /* Push to bottom */
+    width: 100%;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+}
+
+.logout-button:hover {
+    background-color: #c0392b;
+}
+
+.register-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 300px;
+    background-color: white;
+}
+
+.dashboard-layout {
+    display: flex;
+    height: 100vh; /* Full height */
+}
+
+.sidebar {
+    background-color: var(--c6) !important;
+    position: relative;
+    background-color: #f4f4f4;
+    width: 100%;
+    padding: 20px 10px;
+    height: 95vh; /* Reduce height slightly for a floating effect */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    position: fixed;
+    top: 50%;
+    left: 15px; /* Small gap from the left */
+    transform: translateY(-50%); /* Centers it vertically */
+    border-radius: 15px; /* Rounded corners */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect - sidebar expands slightly */
+.sidebar:hover {
+    width: calc(20vw + 10px); /* Slightly wider on hover */
+    max-width: 360px;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Sidebar links */
+.sidebar a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Make background color fill entire width of sidebar */
+.sidebar a:hover {
+    background-color: #45ACD1;
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    border-radius: 10px;
+}
+
+.content-area {
+    width: calc(100vw - 20vw); /* Takes remaining width after sidebar */
+    margin-left: 20vw; /* Shifts content to the right of the sidebar */
+    padding: 20px;
+    overflow-y: auto;
+    transition: width 0.3s ease-in-out, margin-left 0.3s ease-in-out; /* Smooth transition */
+}
+
+.dashboard-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Ensures it takes the remaining space */
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.sidebar-wrapper {
+    padding: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    height: 100vh;
+}
+
+.main-layout {
+    height: 100vh;
+    width: 100vw;
+    padding-left: 22vw;
+    padding-right: 2.5vw;
+}
+
+.main-container {
+    padding: 2vw;
+    width: 80vw;
+    height: 100vh;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    margin: 0 0;
+}
+
+.tour-card {
+    background-color: var(--tour-card-bg);
+    border: 1px solid var(--tour-card-border);
+    color: var(--tour-card-text);
+    padding: 1rem;
+    border-radius: 0.625rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    width: 30%;
+}
+
+.package-count{
+    font-size: 1rem;
+    color: var(--c2);
+}
+
+.custom-trip-view {
+    padding: 20px;
+    color: var(--c6); /* Light Sky Blue for text */
+    background-color: var(--c1); /* Dark Rich Black for background */
+}
+
+.checkbox{
+    color: var(--c6); /* Light Sky Blue for text */
+    font-size: 1rem;
+}
+
+.checkbox-title{
+    color: var(--c5); /* Bright Teal for title */
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.checkbox-layout {
+    margin-bottom: 20px;
+    color: var(--c6); /* Light Sky Blue for text */
+}
+
+.budget-label {
+    color: var(--c5); /* Warm Flax Yellow for labels */
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+.search-button {
+    margin-top: 20px;
+    background-color: var(--c2); /* Bright Teal for button */
+    color: var(--c1); /* Dark Rich Black for text */
+    border-radius: 8px;
+    padding: 10px 20px;
+}
+
+.search-button:hover {
+    background-color: var(--c4); /* Soft Thistle for hover effect */
+    color: var(--c1); /* Dark Rich Black for text */
+}
+
+/* Example: the style is applied only to the textfields which have the bordered class name. */
+vaadin-text-field.bordered::part(input-field) {
+    box-shadow: inset 0 0 0 1px var(--lumo-contrast-30pct);
+    background-color: var(--lumo-base-color);
+}
+
+/* Ensure text fields are clearly visible */
+vaadin-text-field::part(input-field),
+vaadin-number-field::part(input-field),
+vaadin-date-picker::part(input-field) {
+    background-color: var(--c6); /* Light sky blue for contrast */
+    color: var(--c1); /* Dark text for readability */
+    border: 2px solid var(--c2); /* Bright teal border */
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 1rem;
+    height: 7vh; /* Consistent height */
+}
+
+/* Adjust labels for better readability */
+vaadin-text-field::part(label),
+vaadin-number-field::part(label),
+vaadin-date-picker::part(label) {
+    color: var(--c5); /* Warm flax yellow for visibility */
+    font-weight: bold;
+    display: flex;
+    justify-content: center; /* Centers the label horizontally */
+    text-align: center; /* Ensures text alignment */
+    width: 100%; /* Ensures full width */
+}
+
+/* Placeholder text visibility */
+vaadin-text-field::part(input-field)::placeholder,
+vaadin-number-field::part(input-field)::placeholder,
+vaadin-date-picker::part(input-field)::placeholder {
+    color: var(--c3); /* Muted grayish blue */
+}
+
